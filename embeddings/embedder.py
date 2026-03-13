@@ -1,10 +1,7 @@
 from sentence_transformers import SentenceTransformer
 
-def get_embedding_model(sentences):
+def get_embedding_model():
     """
-    :param sentences:
-    takes a list of sentences and returns a sentence embedding matrix
-
     :return:
     returns a sentence embedding matrix
     """
