@@ -24,3 +24,6 @@ tqdm>=4.66
 
 python-magic-bin
 unstructured[pdf]
+docx2txt
+beautifulsoup4
+requests
