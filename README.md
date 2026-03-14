@@ -1,6 +1,10 @@
 # multi-file-rag
-
-
+![legend and notes](schema/image.png)
+![deployment notes](schema/image-1.png)
+![code map](schema/image-2.png)
+![ingestion sequence](schema/image-3.png)
+![query sequence](schema/image-4.png)
+![overview](schema/image-5.png)
 
 
 ### To build docker image for Qdrant DB run:
