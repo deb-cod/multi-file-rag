@@ -21,3 +21,6 @@ llama-cpp-python==0.2.90
 numpy>=1.24
 scikit-learn>=1.3
 tqdm>=4.66
+
+python-magic-bin
+unstructured[pdf]
