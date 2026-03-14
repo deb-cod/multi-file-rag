@@ -20,10 +20,8 @@ def wait_for_file_complete(file_path):
     while True:
         try:
             current_size = os.path.getsize(file_path)
-
             if current_size == previous_size:
                 break
-
             previous_size = current_size
             time.sleep(1)
 
@@ -37,11 +35,8 @@ class DocumentHandler(FileSystemEventHandler):
 
         if event.is_directory:
             return
-
         file_path = event.src_path
-
         print(f"\nNew file detected: {file_path}")
-
         # wait until file copy finishes
         wait_for_file_complete(file_path)
 
@@ -55,12 +50,9 @@ class DocumentHandler(FileSystemEventHandler):
 def start_watcher():
 
     print("Watching documents folder...")
-
     event_handler = DocumentHandler()
-
     observer = Observer()
     observer.schedule(event_handler, DOCUMENT_FOLDER, recursive=False)
-
     observer.start()
 
     try:

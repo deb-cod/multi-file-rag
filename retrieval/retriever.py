@@ -9,9 +9,7 @@ COLLECTION_NAME = "documents"
 def retrieve(query, k=5):
 
     embedder = get_embedding_model()
-
     query_vector = embedder.encode(query)
-
     results = client.search(
         collection_name=COLLECTION_NAME,
         query_vector=query_vector,
@@ -19,5 +17,4 @@ def retrieve(query, k=5):
     )
 
     docs = [r.payload["text"] for r in results]
-
     return docs
