@@ -44,6 +44,8 @@ For NOW lets download **Q4_K_M** for a good balance: https://huggingface.co/Quan
 
 ### FOR ANY ISSUE IN DOWNLOADING THE MODEL, REFER THE HUGGING FACE *DOCUMENT*
 
+### llm model link: https://drive.google.com/file/d/1NQCB9rgcKClzkwTBHWbHCZYGB_7bpITc/view?usp=sharing
+(save the same in the model directory)
 
 ## To run the pipeline (watcher):
 `python config.py`
@@ -53,6 +55,9 @@ For NOW lets download **Q4_K_M** for a good balance: https://huggingface.co/Quan
 
 ### Open browser:
 `http://127.0.0.1:8000/docs`
+
+
+## On uploading or changes in the file in the document directory, RAG implementaion can be viewed
 
 ### API Call (Browser or Postman):
 Example query: `http://127.0.0.1:8000/ask?query=what is the synopsis about`
