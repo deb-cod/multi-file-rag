@@ -1,9 +1,10 @@
+import os
 from llama_cpp import Llama
 
-llm = Llama(
-    model_path="models/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf",
-    n_ctx=4096
-)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "Meta-Llama-3-8B-Instruct.Q4_K_M.gguf")
+
+llm = Llama(model_path=MODEL_PATH, n_ctx=4096)
 
 
 def generate_answer(context, query):
