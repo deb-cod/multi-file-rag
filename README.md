@@ -64,4 +64,16 @@ Example query: `http://127.0.0.1:8000/ask?query=what is the synopsis about`
 
 
 
+## To scrap urls from the page
+
+### Give executable permission
+`chmod +x crawl_links.sh`
+
+### Useage
+`./crawl_links.sh <url>`
+
+while the watcher/pipeline is running (to detect file change)
+
+
+
 
