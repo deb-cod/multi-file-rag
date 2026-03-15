@@ -1,5 +1,6 @@
 import os
 import requests
+import tempfile
 
 from langchain_community.document_loaders import (
     PyPDFLoader,
@@ -21,11 +22,23 @@ def load_document(path_or_url):
     # -------- URL LOADER --------
     if path_or_url.startswith("http://") or path_or_url.startswith("https://"):
         print("Loading from URL")
-        response = requests.get(path_or_url)
+        # -------- PDF URL --------
+        if path_or_url.lower().endswith(".pdf"):
+            response = requests.get(path_or_url)
+            tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+            tmp.write(response.content)
+            tmp.close()
+            loader = PyPDFLoader(tmp.name)
+            return loader.load()
+        # -------- Normal HTML page --------
+        response = requests.get(
+            path_or_url,
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
         soup = BeautifulSoup(response.text, "html.parser")
         text = soup.get_text(separator="\n")
         print("Loaded text")
-        return [Document(page_content=text, metadata={"source": path_or_url})]
+        return [Document(page_content=text, metadata={"path_or_url": path_or_url})]
 
     # -------- FILE LOADER --------
     ext = os.path.splitext(path_or_url)[1].lower()
