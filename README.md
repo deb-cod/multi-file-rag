@@ -9,6 +9,8 @@
 
 The project is a multi-file RAG (Retrieval-Augmented Generation) system built with Python, designed to process documents and answer queries using a large language model (LLM). The workflow begins with ingestion: a watcher process detects changes to source files, triggering an ingestion pipeline that reads the files, computes embeddings for their content, and stores the resulting vectors and metadata in a Qdrant vector database. This process is handled by components like ingestion/watcher.py and ingestion/ingest.py. For querying, a FastAPI server (api/main.py) receives HTTP requests, which are processed by a generator (llm/generator.py) to produce answers. The generator relies on a retrieval component (retriever/retriever.py) that uses the Qdrant database to find relevant document chunks based on a query's embedding. The system is containerized with Docker, and its architecture is documented in a series of diagrams showing the deployment, code structure, and data flow for both ingestion and query sequences.
 
+Walk through youtube link: https://youtu.be/vb7nWpVhabc
+
 ### To build docker image for Qdrant DB run:
 
 - `INSTALL DOCKER IN YOUR COMPUTER`
